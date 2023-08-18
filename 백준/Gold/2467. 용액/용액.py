@@ -16,12 +16,9 @@ def binary_search(start, end, value):
         return
 
     mid = (start + end) // 2
-    if value == arr[mid]:
-        return
-
     newValue = value + arr[mid]
 
-    if abs(newValue) < minValue:
+    if abs(newValue) < minValue and value != arr[mid]:
         minValue = abs(newValue)
         result = (value, arr[mid])
 
@@ -36,4 +33,5 @@ def binary_search(start, end, value):
 for value in arr:
     binary_search(0, N, value)
 
+arr.sort()
 print(*sorted(result))
